@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import {
   ListGroup, ListGroupItem, Container, Row, Col, Navbar, NavbarBrand, Nav, NavItem, NavLink, Card, CardBody, CardTitle, CardSubtitle, CardText, Button, Collapse
 } from 'reactstrap';
-import './Difficulty';
 import ResumeItem from './ResumeItem';
 
 

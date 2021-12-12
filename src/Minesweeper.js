@@ -1,7 +1,6 @@
 import React, { Component, Fragment, useEffect, useState } from 'react';
 import { Route, IndexRoute } from 'react-router';
 import 'bootstrap/dist/css/bootstrap.css';
-import Board from './Board';
 import {
   ListGroup, ListGroupItem, Container, Row, Col, Navbar, NavbarBrand, Nav, NavItem, NavLink, Card, CardBody, CardTitle, CardSubtitle, CardText, Collapse
 } from 'reactstrap';
