@@ -134,18 +134,24 @@ function Minesweeper(props){
 
     function handleClick(index){
         if(firstClick){
+            console.log(index);
             var newBoard = board;
             var adjacent = getAdjacent(index, true);
-            adjacent.push(index);
+            //adjacent.push(index);
             for(var i = 0; i < adjacent.length; ++i){
                 if(newBoard[adjacent[i]] === -1){
-                    newBoard[adjacent[i]] = 0;
                     var bombAdjacent = getAdjacent(adjacent[i], true);
+                    var bombAdjacentCount = 0;
                     for(var j = 0; j < bombAdjacent.length; ++j){
                         if(newBoard[bombAdjacent[j]] !== -1 && newBoard[bombAdjacent[j]] !== 0){
+                            console.log("decreased " + bombAdjacent[j] + " because of " + adjacent[i]);
                             newBoard[bombAdjacent[j]] = newBoard[bombAdjacent[j]] - 1;
                         }
+                        if(newBoard[bombAdjacent[j]] === -1){
+                            ++ bombAdjacentCount;
+                        }
                     }
+                    newBoard[adjacent[i]] = bombAdjacentCount;
                 }
             }
             setBoard(newBoard);
