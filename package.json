@@ -2,7 +2,7 @@
   "name": "react-fetch-rest-api",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://wustlcse204.github.io/10-final-project-individual-JohnFotouhi/",
+  "homepage": "https://wustlcse204.github.io/10-final-project-individual-JohnFotouhi",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
