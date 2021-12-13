@@ -22,6 +22,7 @@ function Minesweeper(props){
     const [firstClick, setFirstClick] = useState(true);
     const [newGame, setNewGame] = useState(true);
     const [show, setShow] = useState(false);
+    const [gameOver, setGameOver] = useState(false);
     
 
     useEffect(() => {
@@ -47,7 +48,6 @@ function Minesweeper(props){
         setBoardCovers(newBoardCovers);
         setBoard(newBoard);
         setupdateToggle(!updateToggle);
-        console.log(newBoard);
     }, [newGame]);
 
     useEffect(() => {
@@ -135,17 +135,15 @@ function Minesweeper(props){
 
     function handleClick(index){
         if(firstClick){
-            console.log(index);
             var newBoard = board;
             var adjacent = getAdjacent(index, true);
-            //adjacent.push(index);
+            adjacent.push(index);
             for(var i = 0; i < adjacent.length; ++i){
                 if(newBoard[adjacent[i]] === -1){
                     var bombAdjacent = getAdjacent(adjacent[i], true);
                     var bombAdjacentCount = 0;
                     for(var j = 0; j < bombAdjacent.length; ++j){
                         if(newBoard[bombAdjacent[j]] !== -1 && newBoard[bombAdjacent[j]] !== 0){
-                            console.log("decreased " + bombAdjacent[j] + " because of " + adjacent[i]);
                             newBoard[bombAdjacent[j]] = newBoard[bombAdjacent[j]] - 1;
                         }
                         if(newBoard[bombAdjacent[j]] === -1){
@@ -159,12 +157,19 @@ function Minesweeper(props){
             revealAdjacent(index);
             setFirstClick(false);
         }
+        else if(gameOver){
+            
+        }
         else if(board[index] === -1){
             //game over
+            setGameOver(true);
             var newBoardCovers = boardCovers;
             for(var i = 0; i < 480; ++i){
-                newBoardCovers[i] = 0;
+                if(board[i] === -1)newBoardCovers[i] = 0;
             }
+            var newBoard = board;
+            newBoard[index]  = -2;
+            setBoard(newBoard);
             setBoardCovers(newBoardCovers);
             setupdateToggle(!updateToggle);
             setShow(true);
