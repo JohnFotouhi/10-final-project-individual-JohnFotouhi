@@ -13,7 +13,7 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
     <Router>
     <Routes>
-      <Route path="/" element={<App />} />
+      <Route exact path="/" element={<App />} />
       <Route path="/minesweeper" element={<Minesweeper/>}/>
     </Routes>
   </Router>,

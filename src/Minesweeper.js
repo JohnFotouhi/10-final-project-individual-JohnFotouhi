@@ -1,5 +1,4 @@
 import React, { Component, Fragment, useEffect, useState } from 'react';
-import { Route, IndexRoute } from 'react-router';
 import 'bootstrap/dist/css/bootstrap.css';
 import {
   ListGroup, ListGroupItem, Container, Row, Col, Navbar, NavbarBrand, Nav, NavItem, NavLink, Card, CardBody, CardTitle, CardSubtitle, CardText, Collapse
@@ -7,6 +6,9 @@ import {
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FaBomb, FaFlag, FaAsterisk } from "react-icons/fa";
+import { Route, Routes, Link } from "react-router-dom";
+import App from './App';
+
 
 function Minesweeper(props){
     const [board, setBoard] = useState([]);
@@ -184,10 +186,10 @@ function Minesweeper(props){
     return(
         <>
         <Navbar expand="lg" color="dark" dark style={{marginBottom: "30px"}}>
-            <NavbarBrand href="/">John Fotouhi</NavbarBrand>
+            <NavbarBrand><Link to="/">John Fotouhi</Link></NavbarBrand>
             <Nav className="me-auto">
-            <NavLink href="/">Resume</NavLink>
-            <NavLink href="/minesweeper">Minesweeper</NavLink>
+            <NavLink light><Link to="/">Resume</Link></NavLink>
+            <NavLink ><Link to="/minesweeper">Minesweeper</Link></NavLink>
             </Nav>
         </Navbar>
         <h1 style={{width:"100%", textAlign:"center"}} >Minesweeper</h1>
@@ -209,6 +211,7 @@ function Minesweeper(props){
             Close
           </Button>
         </Modal>
+        
         </>
     );
 }

@@ -1,10 +1,11 @@
 import React, { Component, Fragment, useEffect, useState } from 'react';
-import { Route, IndexRoute } from 'react-router';
 import 'bootstrap/dist/css/bootstrap.css';
 import {
   ListGroup, ListGroupItem, Container, Row, Col, Navbar, NavbarBrand, Nav, NavItem, NavLink, Card, CardBody, CardTitle, CardSubtitle, CardText, Button, Collapse
 } from 'reactstrap';
 import ResumeItem from './ResumeItem';
+import { Route, Routes, Link } from "react-router-dom";
+import Minesweeper from './Minesweeper';
 
 
 function App(props) {
@@ -37,13 +38,10 @@ function App(props) {
   return (
     <>    
     <Navbar expand="lg" color="dark" dark style={{marginBottom: "30px"}}>
-    <NavbarBrand href="#home">John Fotouhi</NavbarBrand>
+    <NavbarBrand><Link to="/">John Fotouhi</Link></NavbarBrand>
     <Nav className="me-auto">
-      <NavLink light href="#resume">Resume</NavLink>
-      <NavLink href="#home">Education</NavLink>
-      <NavLink href="#home">Experience</NavLink>
-      <NavLink href="#home">Projects</NavLink>
-      <NavLink href="/minesweeper">Minesweeper</NavLink>
+      <NavLink light><Link to="/">Resume</Link></NavLink>
+      <NavLink ><Link to="/minesweeper">Minesweeper</Link></NavLink>
     </Nav>
     </Navbar>
     <Row div style={{position: "absolute", left:"5%", width:"95%"}}>
@@ -82,6 +80,7 @@ function App(props) {
         </Card>
       </Col>
     </Row>
+    
     </>
   );
 }
