@@ -158,7 +158,7 @@ function Minesweeper(props){
             setFirstClick(false);
         }
         else if(gameOver){
-            
+
         }
         else if(board[index] === -1){
             //game over
@@ -209,7 +209,7 @@ function Minesweeper(props){
                 );
             })}
         </Container>
-        <Button style={{margin:"20px", marginLeft:"25%"}} onClick={() => {setFirstClick(true); setNewGame(!newGame); }}>New Game</Button>
+        <Button style={{margin:"20px", marginLeft:"25%"}} onClick={() => {setGameOver(false); setFirstClick(true); setNewGame(!newGame); }}>New Game</Button>
         <Modal show={show} onHide={() => setShow(false)}>
             <Modal.Body>You Lost</Modal.Body>
         <Button variant="primary" onClick={() => setShow(false)}>
